@@ -13,16 +13,18 @@ const server = http.createServer((req, res) => {
     let path = './views/';
     switch(req.url) {
         case '/' :
+            res.setHeader('content-type', 'text/html');
             path += 'index.html';
             // Got the page, everything's ok
             res.statusCode = 200;
             break;
         case '/about' :
+            res.setHeader('content-type', 'text/html');
             path += 'about.html';
             // Got the page, everything's ok
             res.statusCode = 200;
             break;
-        case '/about-me' :
+        case '/aboutusjk' :
             // Resource was moved, now doing a redirect
             
             res.statusCode = 301;
@@ -30,21 +32,17 @@ const server = http.createServer((req, res) => {
             res.end();
             break;
         case '/styles.css' :
+            res.setHeader('content-type', 'text/css');
             path += 'styles.css';
             break;
         default :
+        res.setHeader('content-type', 'text/html');
             path += '404.html';
             // Doesn't exist, not good
             res.statusCode = 404;
             break;
     }
-
-    // Set header content type. Sending plain text back to browser
-    if (req.url == '/styles.css') {
-        res.setHeader('content-type', 'text/css');
-    } else {
-        res.setHeader('content-type', 'text/html');
-    }
+    
     
     // Read data, send it as a response.
     fs.readFile(path, (err, data) => {
@@ -77,3 +75,5 @@ const server = http.createServer((req, res) => {
 server.listen(3000, 'localhost', () => {
     console.log('Listening for requests on port 3000.');
 })
+
+
