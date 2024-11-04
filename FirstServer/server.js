@@ -1,4 +1,5 @@
 const http = require('http');
+const fs = require('fs');
 
 /**
  * Callback function runs when a request comes in.
@@ -7,7 +8,53 @@ const http = require('http');
  * Response: server's response data
  */
 const server = http.createServer((req, res) => {
-    console.log('Request made');
+    console.log(`Req url: ${req.url}\nReq method: ${req.method}`);
+
+    let path = './views/';
+    switch(req.url) {
+        case '/' :
+            path += 'index.html';
+            // Got the page, everything's ok
+            res.statusCode = 200;
+            break;
+        case '/about' :
+            path += 'about.html';
+            // Got the page, everything's ok
+            res.statusCode = 200;
+            break;
+        case '/about-me' :
+            // Resource was moved, now doing a redirect
+            
+            res.statusCode = 301;
+            res.setHeader('Location', '/about');
+            res.end();
+            break;
+        case '/styles.css' :
+            path += 'styles.css';
+            break;
+        default :
+            path += '404.html';
+            // Doesn't exist, not good
+            res.statusCode = 404;
+            break;
+    }
+
+    // Set header content type. Sending plain text back to browser
+    if (req.url == '/styles.css') {
+        res.setHeader('content-type', 'text/css');
+    } else {
+        res.setHeader('content-type', 'text/html');
+    }
+    
+    // Read data, send it as a response.
+    fs.readFile(path, (err, data) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.write(data);
+            res.end();
+        }
+    })
 });
 
 /**
