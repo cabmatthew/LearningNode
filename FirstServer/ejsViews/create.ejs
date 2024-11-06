@@ -1,25 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <link rel="stylesheet" href="/styles.css" />
-  
-  <title>Matthew's Coding Journal</title>
-</head>
+<%- include('./partials/header.ejs') %>
 <body>
-  <nav>
-    <div class="title">
-        <a href="/"><h1>Matthew's Coding Journal</h1></a>
-        <p>Built by Matthew.</p>
-    </div>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/entries/create">New entry</a></li>
-    </ul>
-  </nav>
-
+  <%- include('./partials/nav.ejs') %>  
   <div class="create-entry content">
     <form>
         <label for="title">Entry title:</label>
@@ -31,5 +14,6 @@
         <button>Submit</button>
     </form>
   </div>
+  <%- include('./partials/footer.ejs') %>
 </body>
 </html>
