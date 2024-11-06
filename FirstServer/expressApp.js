@@ -34,6 +34,14 @@ app.get('/', (req, res) => {
     res.render('index', { title: 'Home' });
 });
 
+app.get('/aboutStyles.css', (req, res) => {
+    /**
+     * res.sendFile('./views/styles.css', { root: __dirname });
+     */
+    // res.render()
+    res.sendFile('./ejsViews/aboutStyles.css', { root: __dirname });
+})
+
 app.get('/styles.css', (req, res) => {
     /**
      * res.sendFile('./views/styles.css', { root: __dirname });
