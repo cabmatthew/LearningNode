@@ -17,6 +17,16 @@ app.set('views', 'ejsViews');
 // Localhost used automatically
 app.listen(3000);
 
+app.use((req, res, next) => {
+    console.log("------- New request made! -------");
+    console.log('Host: ', req.hostname);
+    console.log('Path: ', req.path);
+    console.log('Method: ', req.method);
+    next();
+});
+
+app.use(express.static('static'));
+
 /**
  * App.get: replaces switch blocks, simplifying routing.
  * Res.sendFile: auto-sets headers, status codes, file reading all in one.
@@ -31,24 +41,36 @@ app.get('/', (req, res) => {
      * Get view, render it, send it to the browser
      * EJS looks in './ejsViews' and uses 'index.ejs'
      */
-    res.render('index', { title: 'Home' });
+
+    const entries = [
+        { title: 'Clients & Servers', body: 'A host computer runs a server, which listens for requests. There’s info in these requests, which helps the server decide what to respond with. IP addresses & domains help with the right connection, HTTP allows the communication using a set of instructions. Ports are like doors to computers.'},
+        { title: 'Requests & Responses', body: 'Req & Res. Req is an object containing info about the request, like the URL requested. Res is what\'s sent back after the server processes the response. This can be HTML code, CSS code, or data coming from a DB.'},
+        { title: 'Express!', body: 'Express makes routing much quicker to implement, since some frequently written code is automatically built in. That includes the content type headers.'},
+        { title: 'View Engines', body: 'View or template engines help with dynamically showing data. The view engine processes the template files, then processes them into HTML, while passing in data. There are placeholders we write into the template files which are replaced with data pulled from the server.'}
+    ]
+    res.render('index', { title: 'Home', entries: entries });
 });
 
-app.get('/aboutStyles.css', (req, res) => {
-    /**
-     * res.sendFile('./views/styles.css', { root: __dirname });
-     */
-    // res.render()
-    res.sendFile('./ejsViews/aboutStyles.css', { root: __dirname });
-})
 
-app.get('/styles.css', (req, res) => {
-    /**
-     * res.sendFile('./views/styles.css', { root: __dirname });
-     */
-    // res.render()
-    res.sendFile('./ejsViews/styles.css', { root: __dirname });
-})
+/**
+ * DIDN'T NEED THESE. USED STATIC FOLDER INSTEAD. MUCH EASIER!!
+ */
+
+// app.get('/aboutStyles.css', (req, res) => {
+//     /**
+//      * res.sendFile('./views/styles.css', { root: __dirname });
+//      */
+//     // res.render()
+//     res.sendFile('./ejsViews/aboutStyles.css', { root: __dirname });
+// })
+
+// app.get('/styles.css', (req, res) => {
+//     /**
+//      * res.sendFile('./views/styles.css', { root: __dirname });
+//      */
+//     // res.render()
+//     res.sendFile('./ejsViews/styles.css', { root: __dirname });
+// })
 
 app.get('/about', (req, res) => {
     /**

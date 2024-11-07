@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+nav {
+    margin: auto;
+    padding: 0;
+    /* background-color: azure; */
+    width: 95%;
+    align-self: center;
+    flex-direction: row;
+    border-bottom: solid 1px rgba(128, 128, 128, 0.454);
+    display: flex;
+}
+a {
+    text-decoration: none;
+    color: grey;
+    font-weight: 200;
+}
+.title {
+    padding: 10px;
+}
+.nav-title {
+    /* background-color: blue; */
+    margin: 0;
+    font-size: 30px;
+    padding: 0;
+    font-weight: 400;
+}
+.nav-bio {
+    /* background-color: blueviolet; */
+    margin: 0;
+    padding: 0;
+    font-weight: 200;
+    color: grey;
+}
+.nav-links {
+    /* background-color: aquamarine; */
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    display: flex;
+    position: absolute;
+    right: 0;
+
+}
+.nav-link {
+    padding: 35px;
+    padding-top: 55px;
+}
+
+footer {
+    border-top: solid 0.5px grey;
+    width: 100%;
+    margin: auto;
+    color: grey;
+    font-weight: 200;
+    position: absolute;
+    bottom: 0;
+    background-color: white;
+}
+
+.footer-bio {
+    padding: 10px;
+    margin: 0;
+}
+.content {
+    margin: 25px;
+    /* padding: 25px; */
+}
+
+.new-entry-form {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+    color: rgb(51, 57, 75);
+
+    border-radius: 10px;
+    background-color: rgba(244, 243, 243, 0.531);
+    box-shadow: rgba(0, 0, 0, 0.116) 0px 5px 10px;
+}
+.field-title {
+    padding-bottom: 7px;
+    padding-top: 3px;
+}
+.field {
+    height: 25px;
+}
+#body {
+    height: 100px;
+    margin-bottom: 14px;
+}
+
+button {
+    width: 100px;
+    align-self: center;
+}
+
+/* HOME / ALL ENTRIES PAGE */
+.entries {
+    background-color: rgba(244, 244, 244, 0.628);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 1px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.116) 0px 5px 10px;
+    color: rgb(51, 57, 75);
+
+
+    /* margin: */
+}
+.entries-title {
+    border-bottom: solid 1px rgb(15, 2, 2);
+    margin: 10px 0 10px 0;
+    font-weight: 300;
+    font-size: 35px;
+}
+.entry-body {
+    /* padding-bottom: 5px; */
+    padding: 0 0 6px 0;
+    margin: 0 0 0px 0;
+    border-bottom: solid 1px rgba(128, 128, 128, 0.598);
+}
+.entry-title {
+    margin: 5px 0 10px 0;
+    font-weight: 700;
+}
+label {
+    margin: 0;
+    padding: 0;
+}

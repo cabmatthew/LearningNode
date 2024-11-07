@@ -4,12 +4,12 @@
 <body>
   <%- include('./partials/nav.ejs') %>  
   <div class="create-entry content">
-    <form>
-        <label for="title">Entry title:</label>
-        <input type="text" id="title" required>
-        <label for="snippet">Entry snippet:</label>
-        <input type="text" id="snippet" required>
-        <label for="body">Entry body:</label>
+    <form class="new-entry-form">
+        <label class="field-title" for="title">Entry title:</label>
+        <input class="field" type="text" id="title" required>
+        <label class="field-title" for="snippet">Entry snippet:</label>
+        <input class="field" type="text" id="snippet" required>
+        <label class="field-title" for="body">Entry body:</label>
         <textarea id="body" required></textarea>
         <button>Submit</button>
     </form>

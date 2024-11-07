@@ -5,7 +5,12 @@
   <%- include('./partials/nav.ejs') %>
 
   <div class="entries content">
-    <h2>All Entries</h2>
+    <h2 class="entries-title">All Entries</h2>
+    <% if (entries.length > 0) {
+      entries.forEach(entry => { %>
+        <h3 class="entry-title"><%= entry.title %></h3>
+        <p class="entry-body"><%= entry.body %></p>
+    <% })} %>
   </div>
 
   <%- include('./partials/footer.ejs') %>
