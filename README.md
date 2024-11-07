@@ -10,4 +10,6 @@ Run the code:
 ```
 node expressApp.js
 ```
-Server's now running! You can now go to the URL 'localhost:3000' in any browser.
+Now your server should be running! You can type in the URL 'localhost:3000' in any browser to see the server's HTML responses.
+
+Note: VSCode needs 'EJS language support' before it can recognize EJS.
